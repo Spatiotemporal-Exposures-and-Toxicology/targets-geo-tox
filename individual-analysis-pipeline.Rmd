@@ -1,0 +1,77 @@
+---
+title: "Individual Analysis for Messier, Reif, and Marvel 2024"
+output:
+  html_document:
+    df_print: paged
+---
+
+# About 
+# TODO Specify any pre-amble information
+
+
+# Setup
+
+```{r}
+library(targets)
+tar_destroy() # Start fresh.
+```
+
+# Functions
+
+For the GeoTox pipeline analysis of individual level data, the functions are in `./my_target_funs.R`. T
+
+
+# _targets.R file for pipeline
+To formalize our three targets, we express the computation in a special configuration file called `_targets.R` at the project's root directory. The role of `_targets.R` is to
+
+1. Load any functions and global objects that the targets depend on.
+2. Set any options, including packages that the targets depend on.
+3. Declare a list of targets using `tar_target()`. The `_targets.R` script must always end with a list of target objects.
+
+
+```{r}
+library(targets)
+tar_edit()
+```
+
+Functions `tar_make()`, `tar_validate()`, `tar_manifest()`, `tar_glimpse()`, and `tar_visnetwork()` all need `_targets.R`. `_targets.R` lets these functions invoke the pipeline from a new external R process in order to ensure reproducibility.
+
+```{r}
+tar_validate() # Looks for errors.
+```
+
+```{r}
+tar_manifest(fields = "command") # Data frame of target info.
+```
+
+```{r}
+tar_glimpse() # Interactive dependency graph.
+```
+
+# Dependency relationships
+
+
+That means the order you write your targets does not matter. Even if you rearrange the calls to `tar_target()` inside the list, you will still get the same workflow.
+
+`tar_visnetwork()` also includes functions in the dependency graph, as well as color-coded status information.
+
+```{r}
+tar_visnetwork()
+```
+
+# Run the pipeline.
+
+Everything we did so far was just setup. To actually run the pipeline, use the `tar_make()` function. `tar_make()` creates a fresh new reproducible R process that runs `_targets.R` and executes the correct targets in the correct order (from the dependency graph, not the order in the target list).
+
+```{r}
+tar_make()
+```
+
+# Inspect the results
+
+Targets `churn_data` and `churn_recipe` now live in a special `_targets/` data store.
+
+```{r}
+list.files("_targets/objects")
+```
+

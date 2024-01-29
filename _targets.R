@@ -20,9 +20,9 @@ tar_option_set(
 # Run the R scripts in the R/ folder with your custom functions:
 source("my_target_funs.R")
 
-# source("other_functions.R") # Source other scripts as needed.
 
-# Replace the target list below with your own:
+# TODO: Need to check on internal dose calculation - not sure if the matrix algebra
+# is correct
 list(
   tar_target(MVN_exposures, sim_mvn_exposure()),
   tar_target(ICE_conc_resp_data, get_ice_data()),
@@ -30,5 +30,6 @@ list(
   tar_target(hill_model_params, extract_hill_params(hill_2param_fit)),
   tar_target(simulate_weight, get_sim_weight()),
   tar_target(simulate_age, get_sim_age()),
-  tar_target(simulate_IR, simulate_inhalation_rate(simulate_age))
+  tar_target(simulate_IR, simulate_inhalation_rate(simulate_age)),
+  tar_target(internal_dose,calc_internal_dose(MVN_exposures,simulate_IR)) # Used GeoTox function directly (i.e. not a function wrrapper)
 )

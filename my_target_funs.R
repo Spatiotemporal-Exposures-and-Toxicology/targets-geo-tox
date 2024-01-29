@@ -79,3 +79,5 @@ get_sim_weight <- function(n = 1000){
                             prob = c(0.7,0.3))
   return(y_weight_status)
 }
+
+

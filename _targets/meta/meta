@@ -7,6 +7,7 @@ get_sim_weight|function|c57df5e5663d60a9|||||||||||||||
 hill_2param_fit|stem|533d6fdf11b85002|42c8c2f4810250e4|a12fe9f66c2d6ed8|-473814434||t19751.1716567383s|5b26371739c6a506|1202|rds|local|vector|||0.009||
 hill_model_params|stem|3a6882814569fb77|96b2a40108ee0c74|5c021e0cdebcdfe7|1940566725||t19751.1716569752s|32a8804bee50ec2f|885|rds|local|vector|||0.001||
 ICE_conc_resp_data|stem|6614fd49bb5cec49|975c21630d96afd3|0ca7f3ff9b326d7f|609156211||t19751.1689649867s|a23bcccc725f0748|5681|rds|local|vector|||0.673||
+internal_dose|stem|bc0de5e9e25b7c31|bb629da0000acadc|66fce7ef19f32f25|-159407066||t19751.198213996s|dc50ecd6f5443db7|75731|rds|local|vector|||0.001||
 model|stem|ab4edde958e3e961|ae83bc723fe2997c|818847f09a2b74bb|1623637644||t19751.1241148089s|4bab66ba4bee4440|108|rds|local|vector|||0.002||
 MVN_exposures|stem|a82c8e97de886fab|274b02cb7bf452cb|4a9e37a4814b91f0|-1551089992||t19751.1716565493s|9582abe49aa31d09|76583|rds|local|vector|||0.929||
 sim_mvn_exposure|function|564ea3e33ddee1f0|||||||||||||||

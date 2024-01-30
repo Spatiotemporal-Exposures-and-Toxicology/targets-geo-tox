@@ -31,5 +31,7 @@ list(
   tar_target(simulate_weight, get_sim_weight()),
   tar_target(simulate_age, get_sim_age()),
   tar_target(simulate_IR, simulate_inhalation_rate(simulate_age)),
-  tar_target(internal_dose,calc_internal_dose(MVN_exposures,simulate_IR)) # Used GeoTox function directly (i.e. not a function wrrapper)
+  tar_target(internal_dose, calc_internal_dose(MVN_exposures,simulate_IR)), # Used GeoTox function directly (i.e. not a function wrapper)
+  tar_target(chem_casrn, get_chem_casrn(ICE_conc_resp_data)),
+  tar_target(sim_css, simulate_css(chem_casrn, simulate_age, simulate_weight))
 )

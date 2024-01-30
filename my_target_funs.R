@@ -80,4 +80,75 @@ get_sim_weight <- function(n = 1000){
   return(y_weight_status)
 }
 
+#' get_chem_casrn
+#'
+#' @param ice_data 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+get_chem_casrn <- function(ice_data){
+  casrn <- names(ice_data)
+  return(casrn)
+}
+
+#' simulate_css
+#'
+#' @param chem.cas 
+#' @param agelim_years 
+#' @param weight_category 
+#' @param samples 
+#' @param verbose 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+simulate_css <- function(
+    chem.cas, agelim_years, weight_category, samples = 1000, verbose = FALSE
+) {
+  
+  httk::load_sipes2017()
+  
+  if (verbose) {
+    cat(
+      chem.cas,
+      paste0("(", paste(agelim_years, collapse = ", "), ")"),
+      weight_category,
+      "\n"
+    )
+  }
+  
+  httkpop <- list(
+    method = "vi",
+    gendernum = NULL,
+    agelim_years = agelim_years,
+    agelim_months = NULL,
+    weight_category = weight_category,
+    reths = c(
+      "Mexican American",
+      "Other Hispanic",
+      "Non-Hispanic White",
+      "Non-Hispanic Black",
+      "Other"
+    )
+  )
+  
+  mcs <- create_mc_samples(
+    chem.cas = chem.cas,
+    samples = samples,
+    httkpop.generate.arg.list = httkpop,
+    suppress.messages = FALSE
+  )
+  print("mcs worked")
+  css <- calc_analytic_css(
+    chem.cas = chem.cas,
+    parameters = mcs,
+    model = "3compartmentss",
+    suppress.messages = TRUE
+  )
+  
+  list(css)
+}
 

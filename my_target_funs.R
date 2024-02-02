@@ -158,5 +158,18 @@ simulate_css <- function(
 }
 
 
-
+#' plot_mix: Create histograms of the mixture responses
+#'
+#' @param df 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+plot_mix <- function(df, resp = "GCA.Eff"){
+  
+  p <- ggplot(df) + geom_density(aes(df$resp))
+  
+  return(p)
+}
 

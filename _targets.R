@@ -9,7 +9,7 @@ library(targets)
 
 # Set target options:
 tar_option_set(
-  packages = c("GeoToxPackage", "tibble","httk","MASS","fields") # packages that your targets need to run
+  packages = c("GeoToxPackage", "tibble","httk","MASS","fields","ggplot2") # packages that your targets need to run
   # format = "qs", # Optionally set the default storage format. qs is fast.
   #
  
@@ -35,5 +35,6 @@ list(
   tar_target(chem_casrn, get_chem_casrn(ICE_conc_resp_data)),
   tar_target(sim_css, simulate_css(chem_casrn, simulate_age, simulate_weight)),
   tar_target(invitro_equivalent, calc_invitro_concentration(internal_dose, sim_css)),
-  tar_target(mixture_response, calc_concentration_response(hill_model_params, invitro_equivalent))
+  tar_target(mixture_response, calc_concentration_response(hill_model_params, invitro_equivalent)),
+  tar_target(plot_mixture, plot_mix(mixture_response))
 )

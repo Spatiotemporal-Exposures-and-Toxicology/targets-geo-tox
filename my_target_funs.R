@@ -14,7 +14,7 @@ sim_mvn_exposure <- function(n = 1000, k = 10, seed = 1){
   # Correlation function for pollutants
   sigma_x <- exp(-fields::rdist(sample(1:k))/5)
   
-  y_chems <- exp(mvrnorm(n,rep(0,k),sigma_x)) # correlated predictors 
+  y_chems <- exp(MASS::mvrnorm(n,rep(0,k),sigma_x)) # correlated predictors 
   
   return(y_chems)
 }
@@ -106,7 +106,7 @@ get_chem_casrn <- function(ice_data){
 #'
 #' @examples
 simulate_css <- function(
-    chem.cas, agelim_years, weight_category, samples = 1000, verbose = FALSE
+    chem.cas, agelim_years, weight_category, mc.samples = 1000, verbose = FALSE
 ) {
   
   httk::load_sipes2017()
@@ -134,21 +134,29 @@ simulate_css <- function(
       "Other"
     )
   )
-  
-  mcs <- create_mc_samples(
-    chem.cas = chem.cas,
-    samples = samples,
+  mcs <- lapply(chem.cas,create_mc_samples,
+    samples = mc.samples,
     httkpop.generate.arg.list = httkpop,
     suppress.messages = FALSE
   )
-  print("mcs worked")
-  css <- calc_analytic_css(
-    chem.cas = chem.cas,
-    parameters = mcs,
-    model = "3compartmentss",
-    suppress.messages = TRUE
+  
+  css_fun <- function(x){
+    calc_analytic_css(
+      chem.cas = chem.cas[x],
+      parameters = mcs[[x]],
+      model = "3compartmentss",
+      suppress.messages = TRUE      
+    ) |> 
+      median()
+  }
+  css <- sapply(seq_along(mcs), 
+                css_fun,
+                simplify = TRUE
   )
   
-  list(css)
+  return(css)
 }
+
+
+
 

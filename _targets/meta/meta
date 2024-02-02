@@ -10,11 +10,13 @@ hill_2param_fit|stem|533d6fdf11b85002|42c8c2f4810250e4|a12fe9f66c2d6ed8|-4738144
 hill_model_params|stem|3a6882814569fb77|96b2a40108ee0c74|5c021e0cdebcdfe7|1940566725||t19752.1546548338s|32a8804bee50ec2f|885|rds|local|vector|||0.001||
 ICE_conc_resp_data|stem|6614fd49bb5cec49|975c21630d96afd3|0ca7f3ff9b326d7f|609156211||t19752.1546544372s|a23bcccc725f0748|5681|rds|local|vector|||0.915||
 internal_dose|stem|bc0de5e9e25b7c31|bb629da0000acadc|66fce7ef19f32f25|-159407066||t19751.198213996s|dc50ecd6f5443db7|75731|rds|local|vector|||0.001||
+invitro_equivalent|stem|ea9660b051400f6e|f7c70a7d733ca335|884b257cfef162ec|-730654476||t19755.10757176s|2dd2274bf7468660|76794|rds|local|vector|||0.001||
+mixture_response|stem|a6d6f349a16e5fee|5b5f07cad9956760|207b6878762064ea|756750127||t19755.1679869883s|d10e2a8940ffde5d|30809|rds|local|vector|||0.131||
 model|stem|ab4edde958e3e961|ae83bc723fe2997c|818847f09a2b74bb|1623637644||t19751.1241148089s|4bab66ba4bee4440|108|rds|local|vector|||0.002||
-MVN_exposures|stem|a82c8e97de886fab|274b02cb7bf452cb|4a9e37a4814b91f0|-1551089992||t19751.1716565493s|9582abe49aa31d09|76583|rds|local|vector|||0.929||
-sim_css|stem|a3366c21ae1ed408|c6c089357a95bdda|1065a556787d9f67|1273690260||t19751.8484834745s||4803|rds|local|vector|||6.14||Missing metabolic clearance data for Human.           Check for complete invitro TK data using chem.idinget_cheminfoinfochem.id.col,model  MODEL,....
-sim_mvn_exposure|function|564ea3e33ddee1f0|||||||||||||||
+MVN_exposures|stem|a82c8e97de886fab|274b02cb7bf452cb|7788519bcc1aa6d7|-1551089992||t19754.8794521424s|9582abe49aa31d09|76583|rds|local|vector|||0.922||
+sim_css|stem|502771fa0e13eef7|c6c089357a95bdda|2f2a55ecd5757c9d|1273690260||t19755.1075716289s|bce99b594ffe2eda|128|rds|local|vector|||33.159|Clint is provided as a distribution.. Fraction unbound is provided as a distribution.. Clint is provided as a distribution.. Clint is provided as a distribution.. Default value of 1.6 used for Caco2 permeability.. Default value of 1.6 used for Caco2 permeability.. Default value of 1.6 used for Caco2 permeability.. Default value of 1.6 used for Caco2 permeability.. Clint is provided as a distribution.. Default value of 1.6 used for Caco2 permeability.. Clint is provided as a distribution.. Default value of 1.6 used for Caco2 permeability.. Default value of 1.6 used for Caco2 permeability.|
+sim_mvn_exposure|function|100bba7de89032c5|||||||||||||||
 simulate_age|stem|98bbbae605ecf212|5203c23b1bff1b95|fd043eda66db3695|-655866395||t19751.1689651638s|060bdb17ed8be454|1337|rds|local|vector|||0.001||
-simulate_css|function|d3046ce64ffc9a4f|||||||||||||||
+simulate_css|function|06a0f9e6be813f56|||||||||||||||
 simulate_IR|stem|ac9169b43b15bb34|e2ff4c19fe9e7536|361088d14102dd1f|-675000296||t19751.1716569169s|4c937527d2776e36|7573|rds|local|vector|||0.007||
 simulate_weight|stem|2b62e81dfa12933c|012a13f11bed0e31|febeffbdb71b38b5|288126758||t19751.168965097s|7430ee2468db0f5f|385|rds|local|vector|||0||

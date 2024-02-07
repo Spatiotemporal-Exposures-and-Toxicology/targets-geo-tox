@@ -69,8 +69,8 @@ tar_make()
 # View the plot
 
 ```{r}
-tar_load(plot_mixture)
-tar_read(plot_mixture)
+df <- tar_read(plot_mixture)
+df
 ```
 
 # Inspect the results

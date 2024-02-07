@@ -166,9 +166,27 @@ simulate_css <- function(
 #' @export
 #'
 #' @examples
-plot_mix <- function(df, resp = "GCA.Eff"){
+plot_mix <- function(df,type = "GCA.Eff"){
   
-  p <- ggplot(df) + geom_density(aes(df$resp))
+  if (type == "GCA.Eff") {
+    
+    p <- ggplot(df) + geom_density(aes(GCA.Eff))
+    
+  }else if (type == "IA.eff") {
+    
+    p <- ggplot(df) + geom_density(aes(IA.eff))
+    
+  }else if (type == "GCA.HQ.10") {
+    
+    p <- ggplot(df) + geom_density(aes(GCA.HQ.10))
+    
+  }else if (type == "IA.HQ.10") {
+    
+    p <- ggplot(df) + geom_density(aes(IA.HQ.10))
+    
+  }else {
+    stop("type must be NULL,GCA.Eff, IA.eff, GCA.HQ.10 or IA.HQ.10 ")
+  }
   
   return(p)
 }
